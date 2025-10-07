@@ -2,6 +2,7 @@
 import { ApiItemResponse, createLinkedinScraper, Profile } from '@harvestapi/scraper';
 import { Actor } from 'apify';
 import { config } from 'dotenv';
+import crypto from 'node:crypto';
 import { styleText } from 'node:util';
 import { handleInput } from './utils/input.js';
 import { pushItem } from './utils/pushItem.js';
@@ -98,6 +99,7 @@ await scraper.scrapeSalesNavigatorLeads({
   warnPageLimit: isPaying,
   startPage: state.scrapedPageNumber || startPage || 1,
   takePages: isPaying ? takePages : 1,
+  sessionId: crypto.randomUUID(),
   addListingHeaders: {
     'x-sub-user': user?.username || '',
     'x-concurrency': user?.username ? '1' : (undefined as any),
