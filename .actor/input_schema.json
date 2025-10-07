@@ -29,7 +29,7 @@
       "type": "array",
       "editor": "stringList",
       "description": "Filter Profiles by these LinkedIn locations. Example: `San Francisco`. LinkedIn does not always understand your text queries. For example for \"UK\" query it will apply \"Ukraine\" location, so you should use \"United Kingdom\" in this case. Try this out first in the location filter input of LinkedIn search at `https://www.linkedin.com/search/results/people/?geoUrn=%5B%22103644278%22%5D` - we will use the first suggestion from the autocomplete popup when you type your location",
-      "maxItems": 40
+      "maxItems": 20
     },
 
     "currentCompanies": {
@@ -37,14 +37,14 @@
       "type": "array",
       "editor": "stringList",
       "description": "Filter Profiles by these LinkedIn companies. Provide full LinkedIn URLs",
-      "maxItems": 40
+      "maxItems": 10
     },
     "pastCompanies": {
       "title": "Past Company Filter",
       "type": "array",
       "editor": "stringList",
       "description": "Filter Profiles by these LinkedIn past companies. Provide full LinkedIn URLs",
-      "maxItems": 40
+      "maxItems": 10
     },
 
     "schools": {
@@ -52,7 +52,7 @@
       "type": "array",
       "editor": "stringList",
       "description": "Filter Profiles by these LinkedIn schools. Example: `Stanford University`.",
-      "maxItems": 40
+      "maxItems": 10
     },
 
     "currentJobTitles": {
@@ -60,14 +60,14 @@
       "type": "array",
       "editor": "stringList",
       "description": "Filter Profiles by these LinkedIn current job titles. Example: `Software Engineer`.",
-      "maxItems": 40
+      "maxItems": 20
     },
     "pastJobTitles": {
       "title": "Past Job Title Filter",
       "type": "array",
       "editor": "stringList",
       "description": "Filter Profiles by these LinkedIn past job titles. Example: `Software Engineer`.",
-      "maxItems": 40
+      "maxItems": 20
     },
 
     "yearsOfExperienceIds": {
@@ -198,7 +198,7 @@
       "type": "array",
       "editor": "stringList",
       "description": "Filter Profiles by these LinkedIn industry IDs. Example: `4` for 'Software Development'. Full list: `https://github.com/HarvestAPI/linkedin-industry-codes-v2/blob/main/linkedin_industry_code_v2_all_eng_with_header.csv`",
-      "maxItems": 40
+      "maxItems": 20
     },
 
     "firstNames": {
@@ -206,14 +206,14 @@
       "type": "array",
       "editor": "stringList",
       "description": "Filter Profiles by these LinkedIn first names. We recommend using another actor for searches by name: https://apify.com/harvestapi/linkedin-profile-search-by-name",
-      "maxItems": 40
+      "maxItems": 20
     },
     "lastNames": {
       "title": "Last Names Filter",
       "type": "array",
       "editor": "stringList",
       "description": "Filter Profiles by these LinkedIn last names. We recommend using another actor for searches by name: https://apify.com/harvestapi/linkedin-profile-search-by-name",
-      "maxItems": 40
+      "maxItems": 20
     },
     "recentlyChangedJobs": {
       "title": "Recently Changed Jobs Filter",
