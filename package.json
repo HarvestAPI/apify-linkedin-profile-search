@@ -15,7 +15,7 @@
     "test": "echo \"Error: oops, the actor has no tests yet, sad!\" && exit 1"
   },
   "dependencies": {
-    "@harvestapi/scraper": "1.4.27",
+    "@harvestapi/scraper": "1.4.29",
     "apify": "3.4.2",
     "dotenv": "^16.5.0"
   },

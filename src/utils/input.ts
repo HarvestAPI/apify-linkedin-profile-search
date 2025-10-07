@@ -35,6 +35,8 @@ interface Input {
   yearsAtCurrentCompanyIds?: string[];
   seniorityLevelIds?: string[];
   functionIds?: string[];
+  recentlyChangedJobs?: boolean;
+
   maxItems?: number;
   startPage?: number;
   takePages?: number;
@@ -69,6 +71,7 @@ export async function handleInput({ isPaying }: { isPaying: boolean }) {
     yearsAtCurrentCompanyIds: input.yearsAtCurrentCompanyIds || [],
     seniorityLevelIds: input.seniorityLevelIds || [],
     functionIds: input.functionIds || [],
+    recentlyChangedJobs: input.recentlyChangedJobs,
   };
 
   for (const key of Object.keys(query) as (keyof typeof query)[]) {
