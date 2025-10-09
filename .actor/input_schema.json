@@ -7,6 +7,11 @@
       "title": "Profile Scraper Mode",
       "type": "string",
       "enum": ["Short", "Full", "Full + email search"],
+      "enumTitles": [
+        "Short ($0.1 per search page up to 25 short profiles)",
+        "Full ($0.1 per search page + $0.004 per full profile)",
+        "Full + email search ($0.1 per search page + $0.01 per full profile)"
+      ],
       "description": "Choose the mode for scraping LinkedIn profiles. The Short mode provides basic information, while the Full mode includes full detailed profile data.",
       "default": "Full"
     },

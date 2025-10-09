@@ -8,9 +8,9 @@ Unlike other Actors scraping anonymous "LinkedIn member"s from search, this Acto
 
 1. Choose Profile Scraper Mode
 
-- Short. The Actor will be scraping only search pages and will output only basic profile data. One search page is up to 25 results (short profiles).
-- Full. Additionally to scraping search pages, it will open profile links for each of the short profiles found on search page, and scrape all profile details as well.
-- Full + email search. Additionally to Full profiles, it will try to find email addresses for the profiles. **See details below**.
+- Short. The Actor will be scraping only search pages and will output only basic profile data. One search page is up to 25 results (short profiles). The actor will charge $0.1 per search page, regardless of how many profiles were found on the page. It will not charge for short profiles additionally.
+- Full. Additionally to scraping search pages, it will open profile links for each of the short profiles found on search page, and scrape all profile details as well. The actor will charge $0.1 per search page + $0.004 per each full profile scraped.
+- Full + email search. Additionally to Full profiles, it will try to find email addresses for the profiles. **See details below**. The actor will charge $0.1 per search page + $0.01 per each full profile scraped with email search performed.
 
 2. Provide any combination of the following search parameters to find LinkedIn profiles:
 
