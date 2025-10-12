@@ -37,6 +37,21 @@ interface Input {
   functionIds?: string[];
   recentlyChangedJobs?: boolean;
 
+  excludeCurrentCompanies?: string[];
+  excludePastCompanies?: string[];
+  excludeLocations?: string[];
+  excludeGeoIds?: string[];
+  excludeSchools?: string[];
+  excludeCurrentJobTitles?: string[];
+  excludePastJobTitles?: string[];
+  excludeFirstNames?: string[];
+  excludeLastNames?: string[];
+  excludeIndustryIds?: string[];
+  excludeYearsAtCurrentCompanyIds?: string[];
+  excludeYearsOfExperienceIds?: string[];
+  excludeSeniorityLevelIds?: string[];
+  excludeFunctionIds?: string[];
+
   maxItems?: number;
   startPage?: number;
   takePages?: number;
@@ -72,6 +87,20 @@ export async function handleInput({ isPaying }: { isPaying: boolean }) {
     seniorityLevelIds: input.seniorityLevelIds || [],
     functionIds: input.functionIds || [],
     recentlyChangedJobs: input.recentlyChangedJobs,
+    excludeCurrentCompanies: input.excludeCurrentCompanies || [],
+    excludePastCompanies: input.excludePastCompanies || [],
+    excludeLocations: input.excludeLocations || [],
+    excludeGeoIds: input.excludeGeoIds || [],
+    excludeSchools: input.excludeSchools || [],
+    excludeCurrentJobTitles: input.excludeCurrentJobTitles || [],
+    excludePastJobTitles: input.excludePastJobTitles || [],
+    excludeFirstNames: input.excludeFirstNames || [],
+    excludeLastNames: input.excludeLastNames || [],
+    excludeIndustryIds: input.excludeIndustryIds || [],
+    excludeYearsAtCurrentCompanyIds: input.excludeYearsAtCurrentCompanyIds || [],
+    excludeYearsOfExperienceIds: input.excludeYearsOfExperienceIds || [],
+    excludeSeniorityLevelIds: input.excludeSeniorityLevelIds || [],
+    excludeFunctionIds: input.excludeFunctionIds || [],
   };
 
   for (const key of Object.keys(query) as (keyof typeof query)[]) {
