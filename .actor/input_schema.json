@@ -269,61 +269,12 @@
       "description": "Exclude Profiles by these LinkedIn past job titles. Example: `Software Engineer`.",
       "maxItems": 20
     },
-    "excludeFirstNames": {
-      "title": "Exclude First Names Filter",
-      "type": "array",
-      "editor": "stringList",
-      "description": "Exclude Profiles by these LinkedIn first names.",
-      "maxItems": 20
-    },
-    "excludeLastNames": {
-      "title": "Exclude Last Names Filter",
-      "type": "array",
-      "editor": "stringList",
-      "description": "Exclude Profiles by these LinkedIn last names.",
-      "maxItems": 20
-    },
     "excludeIndustryIds": {
       "title": "Exclude Industry IDs Filter",
       "type": "array",
       "editor": "stringList",
       "description": "Exclude Profiles by these LinkedIn industry IDs. Example: `4` for 'Software Development'. Full list: `https://github.com/HarvestAPI/linkedin-industry-codes-v2/blob/main/linkedin_industry_code_v2_all_eng_with_header.csv`",
       "maxItems": 20
-    },
-    "excludeYearsOfExperienceIds": {
-      "title": "Exclude Years of Experience Filter",
-      "type": "array",
-      "editor": "select",
-      "items": {
-        "type": "string",
-        "enum": ["1", "2", "3", "4", "5"],
-        "enumTitles": [
-          "Less than 1 year",
-          "1 to 2 years",
-          "3 to 5 years",
-          "6 to 10 years",
-          "More than 10 years"
-        ]
-      },
-      "description": "Filter Profiles by these LinkedIn years of experience IDs. Example: `3` for '3 to 5 years'."
-    },
-    "excludeYearsAtCurrentCompanyIds": {
-      "title": "Exclude Years at Current Company Filter",
-      "type": "array",
-      "editor": "select",
-      "items": {
-        "type": "string",
-        "enum": ["1", "2", "3", "4", "5"],
-        "enumTitles": [
-          "Less than 1 year",
-          "1 to 2 years",
-          "3 to 5 years",
-          "6 to 10 years",
-          "More than 10 years"
-        ]
-      },
-      "uniqueItems": true,
-      "description": "Filter Profiles by these LinkedIn years at current company IDs. Example: `3` for '3 to 5 years'."
     },
     "excludeSeniorityLevelIds": {
       "title": "Exclude Seniority Level Filter",
