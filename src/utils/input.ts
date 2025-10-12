@@ -94,11 +94,7 @@ export async function handleInput({ isPaying }: { isPaying: boolean }) {
     excludeSchools: input.excludeSchools || [],
     excludeCurrentJobTitles: input.excludeCurrentJobTitles || [],
     excludePastJobTitles: input.excludePastJobTitles || [],
-    excludeFirstNames: input.excludeFirstNames || [],
-    excludeLastNames: input.excludeLastNames || [],
     excludeIndustryIds: input.excludeIndustryIds || [],
-    excludeYearsAtCurrentCompanyIds: input.excludeYearsAtCurrentCompanyIds || [],
-    excludeYearsOfExperienceIds: input.excludeYearsOfExperienceIds || [],
     excludeSeniorityLevelIds: input.excludeSeniorityLevelIds || [],
     excludeFunctionIds: input.excludeFunctionIds || [],
   };
