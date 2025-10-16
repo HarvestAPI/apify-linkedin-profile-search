@@ -220,11 +220,6 @@
       "description": "Filter Profiles by these LinkedIn last names. We recommend using another actor for searches by name: https://apify.com/harvestapi/linkedin-profile-search-by-name",
       "maxItems": 20
     },
-    "recentlyChangedJobs": {
-      "title": "Recently Changed Jobs Filter",
-      "type": "boolean",
-      "description": "Filter Profiles to only those who have recently changed jobs."
-    },
     "profileLanguages": {
       "title": "Profile Languages Filter",
       "type": "array",
@@ -257,6 +252,11 @@
         ]
       },
       "description": "Filter Profiles by these LinkedIn profile languages."
+    },
+    "recentlyChangedJobs": {
+      "title": "Recently Changed Jobs Filter",
+      "type": "boolean",
+      "description": "Filter Profiles to only those who have recently changed jobs."
     },
 
     "excludeLocations": {
