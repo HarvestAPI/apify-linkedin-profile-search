@@ -225,6 +225,39 @@
       "type": "boolean",
       "description": "Filter Profiles to only those who have recently changed jobs."
     },
+    "profileLanguages": {
+      "title": "Profile Languages Filter",
+      "type": "array",
+      "editor": "select",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Arabic",
+          "English",
+          "Spanish",
+          "Portuguese",
+          "Chinese",
+          "French",
+          "Italian",
+          "Russian",
+          "German",
+          "Dutch",
+          "Turkish",
+          "Tagalog",
+          "Polish",
+          "Korean",
+          "Japanese",
+          "Malay",
+          "Norwegian",
+          "Danish",
+          "Romanian",
+          "Swedish",
+          "Bahasa Indonesia",
+          "Czech"
+        ]
+      },
+      "description": "Filter Profiles by these LinkedIn profile languages."
+    },
 
     "excludeLocations": {
       "title": "Exclude Locations Filter",

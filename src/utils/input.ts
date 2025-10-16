@@ -36,6 +36,7 @@ interface Input {
   seniorityLevelIds?: string[];
   functionIds?: string[];
   recentlyChangedJobs?: boolean;
+  profileLanguages?: string[];
 
   excludeCurrentCompanies?: string[];
   excludePastCompanies?: string[];
@@ -44,11 +45,7 @@ interface Input {
   excludeSchools?: string[];
   excludeCurrentJobTitles?: string[];
   excludePastJobTitles?: string[];
-  excludeFirstNames?: string[];
-  excludeLastNames?: string[];
   excludeIndustryIds?: string[];
-  excludeYearsAtCurrentCompanyIds?: string[];
-  excludeYearsOfExperienceIds?: string[];
   excludeSeniorityLevelIds?: string[];
   excludeFunctionIds?: string[];
 
@@ -86,7 +83,9 @@ export async function handleInput({ isPaying }: { isPaying: boolean }) {
     yearsAtCurrentCompanyIds: input.yearsAtCurrentCompanyIds || [],
     seniorityLevelIds: input.seniorityLevelIds || [],
     functionIds: input.functionIds || [],
+    profileLanguages: input.profileLanguages || [],
     recentlyChangedJobs: input.recentlyChangedJobs,
+
     excludeCurrentCompanies: input.excludeCurrentCompanies || [],
     excludePastCompanies: input.excludePastCompanies || [],
     excludeLocations: input.excludeLocations || [],
