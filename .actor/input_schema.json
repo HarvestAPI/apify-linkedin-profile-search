@@ -19,7 +19,8 @@
       "title": "Search query (fuzzy search)",
       "description": "Query to search LinkedIn profiles. (e.g., `Founder`, `Marketing Manager`, `John Doe`). [The query supports search operators](https://www.linkedin.com/help/linkedin/answer/a524335)",
       "type": "string",
-      "editor": "textfield"
+      "editor": "textfield",
+      "maxLength": 300
     },
     "maxItems": {
       "title": "Maximum number of profiles to scrape",
