@@ -113,7 +113,7 @@ await scraper.scrapeSalesNavigatorLeads({
   sessionId: crypto.randomUUID(),
   addListingHeaders: {
     'x-sub-user': user?.username || '',
-    'x-concurrency': user?.username ? '1' : (undefined as any),
+    'x-concurrency': user?.username ? (isPaying ? '2' : '1') : (undefined as any),
     'x-queue-size': isPaying ? '30' : '5',
     'x-request-timeout': '360',
   },
