@@ -52,6 +52,9 @@ If you scraped a query partially and want to continue later, you can start a new
 }
 ```
 
+Note: For scraping profiles by profile URLs, please use our [Linkedin Profile Scraper](https://apify.com/harvestapi/linkedin-profile-scraper)  
+Find more Linkedin scraping actors [https://apify.com/harvestapi](https://apify.com/harvestapi)  
+
 ### Data You'll Receive
 
 - Profile summary and headline
