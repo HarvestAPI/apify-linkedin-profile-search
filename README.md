@@ -1132,7 +1132,7 @@ The actor stores results in a dataset. You can export data in various formats su
 
 ## Deduplication
 
-This Actor support Deduplication feature that allows you to avoid collecting duplicate LinkedIn profiles across multiple runs. This feature works via connecting to your MongoDB database where the Actor will store profile IDs of already scraped profiles and check against them in subsequent runs to skip duplicates. The Actor is not able to save profiles on its own, so your MongoDB database is required (feel free to create a new one with free-tier MongoDB Atlas).
+This Actor support Deduplication feature that allows you to avoid collecting duplicate LinkedIn profiles across multiple runs. This feature works via connecting to your MongoDB database where the Actor will store profile IDs of already scraped profiles and check against them in subsequent runs to skip duplicates. The Actor is not able to save profiles on its own, so your MongoDB database is required (feel free to create a new one with free-tier MongoDB Atlas, don't forget to allow all IPs to connect to it).
 
 After creating, copy your `connection string` that looks like this: `mongodb+srv://<username>:<password>@cluster0.mongodb.net`. Paste it in the Actor input page -> `Deduplication` -> `MongoDB Connection String` input field.  
 Your connection string is encrypted and accessible by the Actor only in your run. [Read more](https://docs.apify.com/platform/actors/development/actor-definition/input-schema/secret-input#encryption-mechanism)
