@@ -2,6 +2,7 @@ import { SearchLinkedInSalesNavLeadsParams } from '@harvestapi/scraper';
 import { Actor } from 'apify';
 import { styleText } from 'node:util';
 import { ProfileScraperMode } from './types.js';
+import { Collection, MongoClient } from 'mongodb';
 
 const profileScraperModeInputMap1: Record<string, ProfileScraperMode> = {
   'Short ($4 per 1k)': ProfileScraperMode.SHORT,
@@ -53,9 +54,25 @@ interface Input {
   startPage?: number;
   takePages?: number;
   salesNavUrl?: string;
+
+  mongoDbConnectionString?: string;
+  profileDeduplicationMode?: 'off' | 'read_only' | 'insert_ids' | 'insert_profiles';
 }
 
-export async function handleInput({ isPaying }: { isPaying: boolean }) {
+export type ProcessedInput = {
+  profileScraperMode: ProfileScraperMode;
+  scraperQuery: SearchLinkedInSalesNavLeadsParams;
+  isFreeUserExceeding: boolean;
+  maxItems: number;
+  startPage: number;
+  takePages: number;
+  mongoDbConnectionString?: string;
+  profileDeduplicationMode: 'off' | 'read_only' | 'insert_ids' | 'insert_profiles';
+  mongoClient?: MongoClient;
+  mongoProfilesCollection?: Collection<{ profileId?: string; salesNavId?: string }>;
+};
+
+export async function handleInput({ isPaying }: { isPaying: boolean }): Promise<ProcessedInput> {
   // Structure of input is defined in input_schema.json
   const input = await Actor.getInput<Input>();
   if (!input) throw new Error('Input is missing!');
@@ -65,8 +82,12 @@ export async function handleInput({ isPaying }: { isPaying: boolean }) {
     profileScraperModeInputMap2[input.profileScraperMode] ??
     ProfileScraperMode.FULL;
 
-  input.searchQuery =
-    (input.searchQuery || '').trim() || (input.searchQueries || [])[0]?.trim() || '';
+  if (input.searchQueries?.length) {
+    console.error('The "searchQueries" input is deprecated. Please use "searchQuery" instead.');
+    await Actor.exit({ statusMessage: 'deprecated input used', exitCode: 1 });
+  }
+
+  input.searchQuery = (input.searchQuery || '').trim() || '';
 
   const query: Partial<SearchLinkedInSalesNavLeadsParams> = {
     currentCompanies: input.currentCompanies || [],
@@ -150,12 +171,39 @@ export async function handleInput({ isPaying }: { isPaying: boolean }) {
     await Actor.exit({ statusMessage: 'no items' });
   }
 
-  return {
+  const processedInput: ProcessedInput = {
     profileScraperMode,
     scraperQuery,
     isFreeUserExceeding,
     maxItems: input.maxItems,
     startPage: input.startPage || 1,
     takePages: input.takePages || 100,
+    mongoDbConnectionString: input.mongoDbConnectionString,
+    profileDeduplicationMode: input.profileDeduplicationMode || 'off',
   };
+
+  if (input.mongoDbConnectionString) {
+    const mongoClient = new MongoClient(input.mongoDbConnectionString);
+    await mongoClient.connect();
+    const db = mongoClient.db('harvestapi');
+    const profilesCollection = db.collection<{ profileId?: string; salesNavId?: string }>(
+      'linkedin_profiles',
+    );
+    processedInput.mongoClient = mongoClient;
+    processedInput.mongoProfilesCollection = profilesCollection;
+
+    const profile_id_idx = await profilesCollection.createIndex(
+      { profileId: 1 },
+      { name: 'profile_id_idx', background: true },
+    );
+    console.info(`Index '${profile_id_idx}' is ensured to exist.`);
+
+    const sales_nav_id_idx = await profilesCollection.createIndex(
+      { salesNavId: 1 },
+      { name: 'sales_nav_id_idx', background: true },
+    );
+    console.info(`Index '${sales_nav_id_idx}' is ensured to exist.`);
+  }
+
+  return processedInput;
 }

@@ -1,9 +1,10 @@
 // Apify SDK - toolkit for building Apify Actors (Read more at https://docs.apify.com/sdk/js/).
-import { ApiItemResponse, createLinkedinScraper, Profile } from '@harvestapi/scraper';
+import { createLinkedinScraper } from '@harvestapi/scraper';
 import { Actor } from 'apify';
 import { config } from 'dotenv';
 import crypto from 'node:crypto';
 import { styleText } from 'node:util';
+import { fetchItem } from './utils/fetchItem.js';
 import { handleInput } from './utils/input.js';
 import { pushItem } from './utils/pushItem.js';
 import { ProfileScraperMode } from './utils/types.js';
@@ -30,10 +31,9 @@ if (pricingInfo.maxTotalChargeUsd < 0.1) {
   });
 }
 
+const processedInput = await handleInput({ isPaying });
 const { profileScraperMode, scraperQuery, isFreeUserExceeding, maxItems, takePages, startPage } =
-  await handleInput({
-    isPaying,
-  });
+  processedInput;
 
 let totalRuns = 0;
 if (userId) {
@@ -122,33 +122,7 @@ await scraper.scrapeSalesNavigatorLeads({
   },
   optionsOverride: {
     fetchItem: async ({ item }) => {
-      if (item?.id || item?.publicIdentifier) {
-        if (profileScraperMode === ProfileScraperMode.SHORT && item?.id) {
-          return {
-            status: 200,
-            entityId: item.id || item.publicIdentifier,
-            element: item,
-          } as ApiItemResponse<Profile>;
-        }
-
-        const profile = await scraper.getProfile({
-          url: `https://www.linkedin.com/in/${item.publicIdentifier || item.id}`,
-          findEmail: profileScraperMode === ProfileScraperMode.EMAIL,
-        });
-        if (profile?.element?.id) {
-          return {
-            ...profile,
-            element: {
-              ...profile.element,
-              openProfile: (item as any).openProfile,
-            },
-          };
-        } else {
-          return profile;
-        }
-      }
-
-      return { skipped: true };
+      return fetchItem({ item, processedInput, scraper });
     },
   },
   onPageFetched: async ({ page, data }) => {

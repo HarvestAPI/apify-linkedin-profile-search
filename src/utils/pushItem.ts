@@ -8,11 +8,17 @@ export async function pushItem({
   pagination,
   profileScraperMode,
 }: {
-  item: Profile | ProfileShort;
+  item: (Profile | ProfileShort) & {
+    _meta?: { pagination: ApiPagination | null };
+    skipped?: boolean;
+  };
   payments: string[];
   pagination: ApiPagination | null;
   profileScraperMode: ProfileScraperMode;
 }) {
+  if (item.skipped) {
+    return;
+  }
   console.info(`Scraped profile ${item.linkedinUrl || item?.publicIdentifier || item?.id}`);
 
   item = {

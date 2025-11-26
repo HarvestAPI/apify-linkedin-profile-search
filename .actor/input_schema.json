@@ -413,6 +413,26 @@
       "description": "The number of search pages to scrape. Each page contains 25 profiles.",
       "minimum": 0,
       "maximum": 100
+    },
+    "profileDeduplicationMode": {
+      "title": "Profile Deduplication Mode",
+      "type": "string",
+      "enum": ["off", "insert_ids", "insert_profiles", "read_only"],
+      "enumTitles": [
+        "Off [default] (do not skip any profiles)",
+        "Insert IDs [recommended for deduplication] (skip already scraped profiles and store new profile IDs)",
+        "Insert Profiles (skip already scraped profiles and store full profile data)",
+        "Read Only (only skip already scraped profiles, do not store new profile IDs)"
+      ],
+      "description": "Choose how the actor should handle deduplication of LinkedIn profiles across multiple runs using your MongoDB database.",
+      "sectionCaption": "Deduplication"
+    },
+    "mongoDbConnectionString": {
+      "title": "MongoDB Connection String",
+      "type": "string",
+      "description": "Your MongoDB connection string to the database where the actor will store and check scraped profile IDs for deduplication. Example: `mongodb+srv://<username>:<password>@cluster0.mongodb.net`",
+      "editor": "textfield",
+      "isSecret": true
     }
   }
 }

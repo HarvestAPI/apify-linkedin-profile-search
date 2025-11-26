@@ -53,7 +53,7 @@ If you scraped a query partially and want to continue later, you can start a new
 ```
 
 Note: For scraping profiles by profile URLs, please use our [Linkedin Profile Scraper](https://apify.com/harvestapi/linkedin-profile-scraper)  
-Find more Linkedin scraping actors [https://apify.com/harvestapi](https://apify.com/harvestapi)  
+Find more Linkedin scraping actors [https://apify.com/harvestapi](https://apify.com/harvestapi)
 
 ### Data You'll Receive
 
@@ -1129,6 +1129,13 @@ Here is the example profile output of this actor:
 ## Linkedin Profile Search API
 
 The actor stores results in a dataset. You can export data in various formats such as CSV, JSON, XLS, etc. You can scrape and access data on demand using API.
+
+## Deduplication
+
+This Actor support Deduplication feature that allows you to avoid collecting duplicate LinkedIn profiles across multiple runs. This feature works via connecting to your MongoDB database where the Actor will store profile IDs of already scraped profiles and check against them in subsequent runs to skip duplicates. The Actor is not able to save profiles on its own, so your MongoDB database is required (feel free to create a new one with free-tier MongoDB Atlas).
+
+After creating, copy your `connection string` that looks like this: `mongodb+srv://<username>:<password>@cluster0.mongodb.net`. Paste it in the Actor input page -> `Deduplication` -> `MongoDB Connection String` input field.  
+Your connection string is encrypted and accessible by the Actor only in your run. (Read more)[https://docs.apify.com/platform/actors/development/actor-definition/input-schema/secret-input#encryption-mechanism]
 
 ## Large scale scraping and Rate Limits
 
