@@ -182,7 +182,11 @@ export async function handleInput({ isPaying }: { isPaying: boolean }): Promise<
     profileDeduplicationMode: input.profileDeduplicationMode || 'off',
   };
 
-  if (input.mongoDbConnectionString) {
+  if (
+    input.mongoDbConnectionString &&
+    processedInput.profileDeduplicationMode &&
+    processedInput.profileDeduplicationMode !== 'off'
+  ) {
     const mongoClient = new MongoClient(input.mongoDbConnectionString);
     await mongoClient.connect();
     const db = mongoClient.db('harvestapi');
@@ -203,6 +207,18 @@ export async function handleInput({ isPaying }: { isPaying: boolean }): Promise<
       { name: 'sales_nav_id_idx', background: true },
     );
     console.info(`Index '${sales_nav_id_idx}' is ensured to exist.`);
+  }
+
+  if (
+    processedInput.profileDeduplicationMode &&
+    processedInput.profileDeduplicationMode !== 'off' &&
+    !processedInput.mongoDbConnectionString
+  ) {
+    console.warn(
+      styleText('bgYellow', ' [WARNING] ') +
+        ' Deduplication is enabled, but MongoDB connection string is not provided. \n Please check the Information section https://console.apify.com/actors/M2FMdjRVeF1HPGFcc/information/latest/readme#deduplication.',
+    );
+    await Actor.exit({ statusMessage: 'no mongo connection string' });
   }
 
   return processedInput;
