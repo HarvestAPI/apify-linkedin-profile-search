@@ -84,7 +84,7 @@ export async function handleInput({ isPaying }: { isPaying: boolean }): Promise<
 
   if (input.searchQueries?.length) {
     console.error('The "searchQueries" input is deprecated. Please use "searchQuery" instead.');
-    await Actor.exit({ statusMessage: 'deprecated input used', exitCode: 1 });
+    // await Actor.exit({ statusMessage: 'deprecated input used', exitCode: 1 });
   }
 
   input.searchQuery = (input.searchQuery || '').trim() || '';
