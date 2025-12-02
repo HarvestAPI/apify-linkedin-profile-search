@@ -114,7 +114,7 @@ await scraper.scrapeSalesNavigatorLeads({
   addListingHeaders: {
     'x-sub-user': user?.username || '',
     'x-concurrency': user?.username ? (isPaying ? '2' : '1') : (undefined as any),
-    'x-queue-size': isPaying ? '30' : '5',
+    'x-queue-size': isPaying ? '30' : '2',
     'x-request-timeout': '360',
   },
   onItemScraped: async ({ item, payments, pagination }) => {
