@@ -1,20 +1,20 @@
-## LinkedIn Profile Search Mass scraper
+## LinkedIn Profile Search Mass Scraper
 
-Our powerful tool helps you search all LinkedIn Profiles and filter by companies, job titles, locations and more without compromising security or violating platform policies. This Actor can find and scrape nearly everyone on LinkedIn.
+Our powerful tool helps you search all LinkedIn Profiles and filter by companies, job titles, locations, and more without compromising security or violating platform policies. This Actor can find and scrape nearly everyone on LinkedIn. The number of possible results to extract is much bigger than with other actors.
 
 ### Other LinkedIn Profile Search Scrapers:
 
-- For searching by keywords without filters, consider using our [LinkedIn Profile Search by services Actor](https://apify.com/harvestapi/linkedin-profile-search-by-services). It's cheaper, doesn't apply rate limits and can be used at larger scale. The drawback is that it doesn't support many filters and can find fewer profiles.
-- For searches by a person's full name, we recommend to use our [Profile Search by name](https://apify.com/harvestapi/linkedin-profile-search-by-name) Actor instead.
-- Find more Linkedin scraping actors [https://apify.com/harvestapi](https://apify.com/harvestapi)
+- For searching by **keywords without filters**, consider using our [LinkedIn Profile Search by services Actor](https://apify.com/harvestapi/linkedin-profile-search-by-services). It's cheaper, doesn't apply rate limits, and can be used at a larger scale. The drawback is that it doesn't support many filters and may find fewer profiles.
+- For searches by a person's **full name**, we recommend using our [Profile Search by name](https://apify.com/harvestapi/linkedin-profile-search-by-name) Actor instead.
+- Find more LinkedIn scraping actors [https://apify.com/harvestapi](https://apify.com/harvestapi).
 
 ## How It Works
 
 1. Choose Profile Scraper Mode
 
-- Short. The Actor will be scraping only search pages and will output only basic profile data. One search page is up to 25 results (short profiles). The actor will charge $0.1 per search page, regardless of how many profiles were found on the page. It will not charge for short profiles additionally.
-- Full. Additionally to scraping search pages, it will open profile links for each of the short profiles found on search page, and scrape all profile details as well. The actor will charge $0.1 per search page + $0.004 per each full profile scraped.
-- Full + email search. Additionally to Full profiles, it will try to find email addresses for the profiles. **See details below**. The actor will charge $0.1 per search page + $0.01 per each full profile scraped with email search performed.
+- **Short**: The Actor will scrape only **search pages** and will output only **basic profile data**. One search page yields up to 25 results (**short profiles**). The actor will charge **\$0.10 per search page**, regardless of how many profiles were found on the page. It will not charge for short profiles additionally.
+- **Full**: In addition to scraping search pages, it will open the profile link for each short profile found on the search page and scrape **all profile details** as well. The actor will charge **\$0.10 per search page + \$0.004 per each full profile scraped**.
+- **Full + email search**: In addition to Full profiles, it will attempt to find **email addresses** for the profiles. **See details below**. The actor will charge **\$0.10 per search page + \$0.01 per each full profile scraped with email search performed**.
 
 2. Provide any combination of the following search parameters to find LinkedIn profiles:
 
