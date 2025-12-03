@@ -2,6 +2,12 @@
 
 Our powerful tool helps you search all LinkedIn Profiles and filter by companies, job titles, locations and more without compromising security or violating platform policies. This Actor can find and scrape nearly everyone on LinkedIn.
 
+### Other LinkedIn Profile Search Scrapers:
+
+- For searching by keywords without filters, consider using our [LinkedIn Profile Search by services Actor](apify.com/harvestapi/linkedin-profile-search-by-services). It's cheaper, doesn't apply rate limits and can be used at scale. The drawback is that it doesn't support many filters and can find fewer profiles.
+- If you need to search by a person's full name, we recommend to use our [Profile Search by name](https://apify.com/harvestapi/linkedin-profile-search-by-name) Actor instead.
+- Find more Linkedin scraping actors [https://apify.com/harvestapi](https://apify.com/harvestapi)
+
 ## How It Works
 
 1. Choose Profile Scraper Mode
@@ -28,12 +34,6 @@ Other params (optionally):
 - `startPage` - The page number to start scraping from. Default is 1.
 - `takePages` - The number of pages to scrape. One page is up to 25 results. Maximum is 100 pages (LinkedIn limitation).
 - `maxItems` - Maximum number of profiles to scrape for all queries. If you set to 0, it will scrape all available items or up to 2500 items per search query. LinkedIn doesn't allow to extract more than 2500 per one query.
-
-Other LinkedIn Profile Search Scrapers:
-
-- For searching by keywords without filters, consider using our [LinkedIn Profile Search by services Actor](apify.com/harvestapi/linkedin-profile-search-by-services). It's cheaper, doesn't apply rate limits and can be used at scale. The drawback is that it doesn't support many filters and can find fewer profiles.
-- If you need to search by a person's full name, we recommend to use our [Profile Search by name](https://apify.com/harvestapi/linkedin-profile-search-by-name) Actor instead.
-- Find more Linkedin scraping actors [https://apify.com/harvestapi](https://apify.com/harvestapi)
 
 #### Email search
 
