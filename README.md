@@ -1,8 +1,6 @@
 ## LinkedIn Profile Search Mass scraper
 
-Our powerful tool helps you search all LinkedIn Profiles and filter by companies, job titles, locations and more without compromising security or violating platform policies.
-
-Unlike other Actors scraping anonymous "LinkedIn member"s from search, this Actor can find and scrape nearly everyone on LinkedIn.
+Our powerful tool helps you search all LinkedIn Profiles and filter by companies, job titles, locations and more without compromising security or violating platform policies. This Actor can find and scrape nearly everyone on LinkedIn.
 
 ## How It Works
 
@@ -31,7 +29,11 @@ Other params (optionally):
 - `takePages` - The number of pages to scrape. One page is up to 25 results. Maximum is 100 pages (LinkedIn limitation).
 - `maxItems` - Maximum number of profiles to scrape for all queries. If you set to 0, it will scrape all available items or up to 2500 items per search query. LinkedIn doesn't allow to extract more than 2500 per one query.
 
-Note: If you need to search by a person's full name, we recommend use our [Profile Search by name](https://apify.com/harvestapi/linkedin-profile-search-by-name) Actor instead, as it is more suitable for that use case. It's much cheaper and doesn't apply rate limits.
+Other LinkedIn Profile Search Scrapers:
+
+- For searching by keywords without filters, consider using our [LinkedIn Profile Search by services Actor](apify.com/harvestapi/linkedin-profile-search-by-services). It's cheaper, doesn't apply rate limits and can be used at scale. The drawback is that it doesn't support many filters and can find fewer profiles.
+- If you need to search by a person's full name, we recommend to use our [Profile Search by name](https://apify.com/harvestapi/linkedin-profile-search-by-name) Actor instead.
+- Find more Linkedin scraping actors [https://apify.com/harvestapi](https://apify.com/harvestapi)
 
 #### Email search
 
