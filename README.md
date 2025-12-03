@@ -4,8 +4,8 @@ Our powerful tool helps you search all LinkedIn Profiles and filter by companies
 
 ### Other LinkedIn Profile Search Scrapers:
 
-- For searching by keywords without filters, consider using our [LinkedIn Profile Search by services Actor](apify.com/harvestapi/linkedin-profile-search-by-services). It's cheaper, doesn't apply rate limits and can be used at scale. The drawback is that it doesn't support many filters and can find fewer profiles.
-- If you need to search by a person's full name, we recommend to use our [Profile Search by name](https://apify.com/harvestapi/linkedin-profile-search-by-name) Actor instead.
+- For searching by keywords without filters, consider using our [LinkedIn Profile Search by services Actor](apify.com/harvestapi/linkedin-profile-search-by-services). It's cheaper, doesn't apply rate limits and can be used at larger scale. The drawback is that it doesn't support many filters and can find fewer profiles.
+- For searches by a person's full name, we recommend to use our [Profile Search by name](https://apify.com/harvestapi/linkedin-profile-search-by-name) Actor instead.
 - Find more Linkedin scraping actors [https://apify.com/harvestapi](https://apify.com/harvestapi)
 
 ## How It Works
