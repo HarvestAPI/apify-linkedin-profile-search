@@ -170,5 +170,4 @@ await new Promise((resolve) => setTimeout(resolve, 1000));
 // Gracefully exit the Actor process. It's recommended to quit all Actors with an exit().
 await Actor.exit({
   statusMessage: hitRateLimit ? 'rate limited' : 'success',
-  exitCode: hitRateLimit ? 1 : 0,
 });
