@@ -6,6 +6,7 @@ Our powerful tool helps you search all LinkedIn Profiles and filter by companies
 
 - For searching by **keywords without filters**, consider using our [LinkedIn Profile Search by services Actor](https://apify.com/harvestapi/linkedin-profile-search-by-services). It's cheaper, doesn't apply rate limits, and can be used at a larger scale. The drawback is that it doesn't support many filters and may find fewer profiles.
 - For searches by a person's **full name**, we recommend using our [Profile Search by name](https://apify.com/harvestapi/linkedin-profile-search-by-name) Actor instead.
+- For scraping profiles by profile URLs, please use our [Linkedin Profile Scraper](https://apify.com/harvestapi/linkedin-profile-scraper).
 - Find more LinkedIn scraping actors [https://apify.com/harvestapi](https://apify.com/harvestapi).
 
 ## How It Works
@@ -44,7 +45,12 @@ Important Note: The scraper cannot extract emails directly from a LinkedIn profi
 
 The Actor will print in the how many profiles in total were found for your query. If the total is more than 2500, you won't be able to extract all results. Consider splitting your query into multiple queries applying more filters. For example do multiple runs for locations of specific cities, instead of one run targeting entire country or region.
 
-If you scraped a query partially and want to continue later, you can start a new run from the last scraped search page. Check the Actor's logs and find the last line like this: `Scraped search page 10. Found 25 profiles on the page.`. Start a new run with specifying the next `startPage` in the input:
+### Pagination
+
+If you scraped a query partially and want to continue later, you can start a new run from the last scraped search page. Check the Actor's logs and find the last line like this: `Scraped search page 10. Found 25 profiles on the page.`. Or check the last result
+in the dataset, each profile contains the pagination info under `_meta` field, the last page will be under `_meta.pagination.pageNumber`.
+
+Start a new run with specifying the next `startPage` in the input:
 
 ```json
 {
@@ -54,8 +60,7 @@ If you scraped a query partially and want to continue later, you can start a new
 }
 ```
 
-Note: For scraping profiles by profile URLs, please use our [Linkedin Profile Scraper](https://apify.com/harvestapi/linkedin-profile-scraper)  
-Find more Linkedin scraping actors [https://apify.com/harvestapi](https://apify.com/harvestapi)
+The pagination info also contains the total number of profiles on LinkedIn for your query under `_meta.pagination.totalElements`.
 
 ### Data You'll Receive
 
